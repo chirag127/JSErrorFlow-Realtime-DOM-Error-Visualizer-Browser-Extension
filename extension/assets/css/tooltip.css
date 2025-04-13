@@ -1,0 +1,94 @@
+.jev-error-tooltip {
+  position: absolute;
+  z-index: 9999;
+  background-color: rgba(231, 76, 60, 0.95);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  max-width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.jev-error-tooltip.visible {
+  opacity: 1;
+}
+
+.jev-error-tooltip-header {
+  margin-bottom: 5px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 5px;
+}
+
+.jev-error-tooltip-message {
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+.jev-error-tooltip-location {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.jev-error-tooltip-count {
+  display: inline-block;
+  background-color: white;
+  color: #e74c3c;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.jev-error-tooltip-prompt {
+  font-style: italic;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 5px;
+}
+
+/* Arrow */
+.jev-error-tooltip::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-style: solid;
+}
+
+.jev-error-tooltip.top::after {
+  border-color: rgba(231, 76, 60, 0.95) transparent transparent transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+}
+
+.jev-error-tooltip.bottom::after {
+  border-color: transparent transparent rgba(231, 76, 60, 0.95) transparent;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -6px;
+}
+
+.jev-error-tooltip.left::after {
+  border-color: transparent transparent transparent rgba(231, 76, 60, 0.95);
+  top: 50%;
+  left: 100%;
+  margin-top: -6px;
+}
+
+.jev-error-tooltip.right::after {
+  border-color: transparent rgba(231, 76, 60, 0.95) transparent transparent;
+  top: 50%;
+  right: 100%;
+  margin-top: -6px;
+}

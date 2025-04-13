@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a7bc8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad1)" />
+  
+  <!-- Code Brackets -->
+  <path d="M40,44 L24,64 L40,84" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M88,44 L104,64 L88,84" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Error Symbol -->
+  <circle cx="64" cy="64" r="20" fill="url(#grad2)" />
+  <path d="M64,54 L64,74" stroke="white" stroke-width="6" stroke-linecap="round" />
+  <circle cx="64" cy="80" r="3" fill="white" />
+  
+  <!-- Highlight Border -->
+  <rect x="34" y="34" width="60" height="60" rx="4" ry="4" fill="none" stroke="white" stroke-width="4" stroke-dasharray="8,4" />
+</svg>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Error Visualizer</title>
+  <link rel="stylesheet" href="../assets/css/popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>JavaScript Error Visualizer</h1>
+      <div class="toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="extension-toggle" checked>
+          <span class="slider round"></span>
+        </label>
+        <span id="toggle-status">Enabled</span>
+      </div>
+    </header>
+    
+    <div class="search-filter">
+      <input type="text" id="search-input" placeholder="Search errors...">
+      <select id="filter-type">
+        <option value="all">All Errors</option>
+        <option value="runtime">Runtime Errors</option>
+        <option value="promise">Promise Rejections</option>
+        <option value="console">Console Errors</option>
+      </select>
+    </div>
+    
+    <div class="error-list-container">
+      <ul id="error-list"></ul>
+      <div id="no-errors-message">No errors detected on this page.</div>
+    </div>
+    
+    <div class="error-details-container" id="error-details">
+      <h2>Error Details</h2>
+      <div id="error-details-content"></div>
+    </div>
+    
+    <footer>
+      <button id="clear-all-btn">Clear All</button>
+      <button id="settings-btn">Settings</button>
+    </footer>
+  </div>
+</body>
+</html>

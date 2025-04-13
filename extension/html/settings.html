@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Error Visualizer - Settings</title>
+  <link rel="stylesheet" href="../assets/css/settings.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>JavaScript Error Visualizer Settings</h1>
+    </header>
+    
+    <main>
+      <section class="settings-section">
+        <h2>General Settings</h2>
+        
+        <div class="setting-item">
+          <label for="global-toggle">Enable Extension Globally</label>
+          <div class="toggle-container">
+            <label class="switch">
+              <input type="checkbox" id="global-toggle" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <label for="auto-clear">Automatically Clear Errors on Page Reload</label>
+          <div class="toggle-container">
+            <label class="switch">
+              <input type="checkbox" id="auto-clear" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <label for="capture-console-errors">Capture console.error Messages</label>
+          <div class="toggle-container">
+            <label class="switch">
+              <input type="checkbox" id="capture-console-errors">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-item">
+          <label for="badge-type">Icon Badge Shows</label>
+          <select id="badge-type">
+            <option value="total">Total Errors</option>
+            <option value="new">New Errors Since Last Open</option>
+          </select>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Highlight Customization</h2>
+        
+        <div class="setting-item">
+          <label for="highlight-color">Highlight Color</label>
+          <input type="color" id="highlight-color" value="#ff0000">
+        </div>
+        
+        <div class="setting-item">
+          <label for="border-style">Border Style</label>
+          <select id="border-style">
+            <option value="dashed">Dashed</option>
+            <option value="solid">Solid</option>
+            <option value="dotted">Dotted</option>
+          </select>
+        </div>
+        
+        <div class="setting-item">
+          <label for="border-width">Border Width (px)</label>
+          <input type="range" id="border-width" min="1" max="5" value="2">
+          <span id="border-width-value">2px</span>
+        </div>
+        
+        <div class="setting-item">
+          <label for="use-background">Use Background Overlay</label>
+          <div class="toggle-container">
+            <label class="switch">
+              <input type="checkbox" id="use-background">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="setting-item" id="background-opacity-container">
+          <label for="background-opacity">Background Opacity</label>
+          <input type="range" id="background-opacity" min="0.1" max="0.5" step="0.1" value="0.2">
+          <span id="background-opacity-value">0.2</span>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Domain Settings</h2>
+        
+        <div class="setting-item">
+          <label for="domain-list-type">Domain List Type</label>
+          <select id="domain-list-type">
+            <option value="allowlist">Allowlist (Only enable on these domains)</option>
+            <option value="blocklist" selected>Blocklist (Disable on these domains)</option>
+          </select>
+        </div>
+        
+        <div class="setting-item">
+          <label for="domain-input">Add Domain</label>
+          <div class="domain-input-container">
+            <input type="text" id="domain-input" placeholder="example.com">
+            <button id="add-domain-btn">Add</button>
+          </div>
+        </div>
+        
+        <div class="domain-list-container">
+          <h3>Domain List</h3>
+          <ul id="domain-list"></ul>
+          <div id="no-domains-message">No domains in the list.</div>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Ignored Errors</h2>
+        
+        <div class="setting-item">
+          <label for="ignored-pattern-input">Add Error Pattern to Ignore (supports regex)</label>
+          <div class="ignored-pattern-input-container">
+            <input type="text" id="ignored-pattern-input" placeholder="Error pattern or regex">
+            <button id="add-ignored-pattern-btn">Add</button>
+          </div>
+        </div>
+        
+        <div class="ignored-patterns-container">
+          <h3>Ignored Patterns</h3>
+          <ul id="ignored-patterns-list"></ul>
+          <div id="no-patterns-message">No ignored patterns.</div>
+        </div>
+      </section>
+      
+      <section class="settings-section">
+        <h2>Advanced Settings</h2>
+        
+        <div class="setting-item">
+          <label for="sourcemap-timeout">Source Map Fetch Timeout (ms)</label>
+          <input type="number" id="sourcemap-timeout" min="1000" max="10000" step="1000" value="5000">
+        </div>
+        
+        <div class="setting-item">
+          <label for="sourcemap-retries">Source Map Fetch Retries</label>
+          <input type="number" id="sourcemap-retries" min="0" max="5" value="2">
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <button id="reset-defaults-btn">Reset to Defaults</button>
+      <button id="save-settings-btn">Save Settings</button>
+    </footer>
+  </div>
+</body>
+</html>

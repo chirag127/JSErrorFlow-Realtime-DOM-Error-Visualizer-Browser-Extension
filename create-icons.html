@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Icons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .canvas-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .canvas-item {
+      text-align: center;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #3a7bc8;
+    }
+    .instructions {
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Icon Generator for JavaScript Error Visualizer</h1>
+  
+  <div class="instructions">
+    <h2>Instructions</h2>
+    <p>This tool will generate PNG icons from the SVG icon for the JavaScript Error Visualizer extension.</p>
+    <ol>
+      <li>Click the "Generate Icons" button below.</li>
+      <li>Right-click on each generated icon and select "Save Image As..."</li>
+      <li>Save each icon with the appropriate name (icon16.png, icon48.png, icon128.png) in the extension/assets/icons/ directory.</li>
+    </ol>
+  </div>
+  
+  <button id="generate-btn">Generate Icons</button>
+  
+  <div class="canvas-container" id="canvas-container"></div>
+  
+  <script>
+    // SVG icon data
+    const svgData = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a7bc8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="64" cy="64" r="60" fill="url(#grad1)" />
+  
+  <!-- Code Brackets -->
+  <path d="M40,44 L24,64 L40,84" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M88,44 L104,64 L88,84" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Error Symbol -->
+  <circle cx="64" cy="64" r="20" fill="url(#grad2)" />
+  <path d="M64,54 L64,74" stroke="white" stroke-width="6" stroke-linecap="round" />
+  <circle cx="64" cy="80" r="3" fill="white" />
+  
+  <!-- Highlight Border -->
+  <rect x="34" y="34" width="60" height="60" rx="4" ry="4" fill="none" stroke="white" stroke-width="4" stroke-dasharray="8,4" />
+</svg>`;
+
+    // Icon sizes
+    const sizes = [16, 48, 128];
+    
+    // Generate icons
+    document.getElementById('generate-btn').addEventListener('click', () => {
+      const container = document.getElementById('canvas-container');
+      container.innerHTML = '';
+      
+      // Create a data URL from the SVG content
+      const svgDataUrl = `data:image/svg+xml;base64,${btoa(svgData)}`;
+      
+      // Create an image element to load the SVG
+      const img = new Image();
+      
+      img.onload = () => {
+        // Create icons for each size
+        sizes.forEach(size => {
+          // Create a canvas with the desired size
+          const canvas = document.createElement('canvas');
+          canvas.width = size;
+          canvas.height = size;
+          
+          // Get the 2D context
+          const ctx = canvas.getContext('2d');
+          
+          // Draw the image on the canvas
+          ctx.drawImage(img, 0, 0, size, size);
+          
+          // Create a container for this canvas
+          const canvasItem = document.createElement('div');
+          canvasItem.className = 'canvas-item';
+          
+          // Add a label
+          const label = document.createElement('p');
+          label.textContent = `${size}x${size} (icon${size}.png)`;
+          
+          // Add the canvas and label to the container
+          canvasItem.appendChild(canvas);
+          canvasItem.appendChild(label);
+          
+          // Add the container to the main container
+          container.appendChild(canvasItem);
+        });
+      };
+      
+      // Load the SVG image
+      img.src = svgDataUrl;
+    });
+  </script>
+</body>
+</html>
