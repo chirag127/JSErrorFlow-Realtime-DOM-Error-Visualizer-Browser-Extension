@@ -1,92 +1,63 @@
 ---
-name: 🐛 Bug Report
-about: Report unexpected behavior or defects in JSErrorFlow.
-title: "[BUG]: Brief Summary of the Issue"
-labels: bug, triage
-assignees: ""
----
-
-## 🚨 Summary & Intent Alignment
-
-Please provide a concise, one-sentence summary of the defect. Ensure the reported behavior deviates from the documented specification.
-
-> **Example:** "The extension fails to highlight errors originating from Web Workers on Chromium 119."
+name: "🐞 Bug Report"
+about: "Report a reproducible bug or unexpected behavior to help us improve."
+title: "[BUG] <A brief, descriptive title>"
+labels: ["bug", "triage"]
+assignees:
+  - "chirag127"
 
 ---
 
-## ⚙️ Environment & Context (Mandatory)
+### Preliminary Checks
 
-This section ensures rapid triangulation of the failure domain. **Do not omit details.**
-
-### A. Platform Details
-- **Operating System:** [e.g., macOS Sonoma 14.2, Windows 11 Pro]
-- **Browser:** [e.g., Chrome 119.0.6045.199, Firefox 120.0.1]
-- **Extension Version:** `JSErrorFlow vX.Y.Z` (Check `manifest.json` or extension details)
-
-### B. Target Application Context
-- **URL / Domain:** (Use placeholders for sensitive sites)
-- **Website Framework:** [e.g., React 18, Vue 3, Vanilla JS]
+- [ ] I have searched the existing [issues](https://github.com/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension/issues) to ensure this is not a duplicate bug report.
+- [ ] I have checked the [project documentation](https://github.com/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension#readme) for any relevant information.
+- [ ] I am using the latest version of the extension.
 
 ---
 
-## 👣 Steps to Reproduce (The Critical Path)
+### Bug Description
 
-Provide a numbered, deterministic sequence that reliably triggers the issue. If the error is intermittent, describe the specific load conditions or timing required.
+A clear and concise description of what the bug is. What happened, and what did you expect to happen?
 
-1. Open Browser to `[Target URL]`
-2. Ensure JSErrorFlow is actively injected.
-3. Execute the triggering action (e.g., "Click the Submit button").
-4. Observe the resulting error visualization or lack thereof.
+### Steps to Reproduce
 
----
+Provide the exact steps to reproduce the behavior:
 
-## 🎯 Expected Behavior (The Specification)
+1. Go to '...'
+2. Click on '...'
+3. Scroll down to '...'
+4. See error
 
-What result aligns with the project's design goals (i.e., what *should* have happened)?
+### Expected Behavior
 
-*   [ ] The JavaScript error stack trace should appear in the extension popup within 500ms.
-*   [ ] The affected DOM node should receive a persistent, pulsating visual indicator as defined by the current UI theme.
+A clear and concise description of what you expected to happen.
 
----
+### Screenshots or Screen Recordings
 
-## 💥 Actual Behavior (The Defect)
+If applicable, add screenshots, GIFs, or video recordings to help explain your problem. You can drag and drop files directly into this editor.
 
-What actually occurred that constitutes the bug?
+### Environment
 
-*   [ ] The error was logged in the browser console but **not** visualized by JSErrorFlow.
-*   [ ] The visualization caused an unexpected side effect (e.g., UI component displacement or layout shift).
+Please complete the following information:
 
----
+-   **Operating System:** [e.g., macOS Sonoma, Windows 11]
+-   **Browser & Version:** [e.g., Chrome 125.0.6422.112, Firefox 126.0]
+-   **Extension Version:** [e.g., v1.0.1]
 
-## 🖼️ Evidence & Logs
+### Console Logs & Technical Details
 
-High-quality evidence accelerates triage by 75%.
+Please open the developer console (F12 or Ctrl+Shift+I) and paste any relevant error messages or stack traces below.
 
-### A. Visual Proof
-(Attach screenshots or screen recordings demonstrating the discrepancy.)
+<details>
+<summary>Click to expand console logs</summary>
 
-### B. Console Output
-Paste the full, relevant output from the browser's Developer Tools Console. Filter by JSErrorFlow sources if possible.
+text
+(Paste your logs here)
 
-```javascript
-// Paste logs here, including stack traces
-```
 
----
+</details>
 
-## ⚖️ Impact Assessment (Severity)
+### Additional Context
 
-How severely does this defect impede core functionality?
-
-- [ ] **P0 - Critical:** Core visualization functionality completely blocked. High developer downtime incurred.
-- [ ] **P1 - High:** Major error handling path broken; workaround requires disabling the extension.
-- [ ] **P2 - Medium:** Minor functionality impaired; aesthetic inconsistency or edge-case handling failure.
-- [ ] **P3 - Low:** Typo, documentation error, or non-critical performance degradation.
-
----
-
-## 🤖 AI Agent Directives for Resolution
-
-**Agent Focus:** Verify against the LATEST TypeScript Strictness settings. Ensure the Content Script's message passing to the Background Service Worker uses the high-reliability `chrome.runtime.sendMessage` pattern (asynchronous). Check Event Listener Cleanup in `cleanupOnDomDetach` to prevent memory leaks.
-
-**Target Fix Location:** `src/content-script.ts` and related DOM manipulation handlers.
+Add any other context about the problem here. For example, is this happening on a specific website or framework (React, Vue, etc.)? Is it intermittent or always reproducible?
