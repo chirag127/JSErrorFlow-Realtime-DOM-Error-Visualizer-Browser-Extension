@@ -1,56 +1,19 @@
 badges:
   - name: Build Status
-    format: github-actions
-    repo: chirag127/JSErrorFlow-Realtime-DOM-Error-Visualizer-Browser-Extension
-    workflow: ci.yml
-    badge_label: Build
-    logo: github
-    style: flat-square
-
-  - name: Version
-    format: npm
-    package: jserrorflow-visualizer # Assuming a future NPM publish name
-    badge_label: Version
-    logo: npm
-    style: flat-square
-
+    img: https://github.com/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension/actions/workflows/ci.yml/badge.svg
+    link: https://github.com/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension/actions/workflows/ci.yml
   - name: Code Coverage
-    format: codecov
-    repo: chirag127/JSErrorFlow-Realtime-DOM-Error-Visualizer-Browser-Extension
-    file: coverage/coverage.json
-    badge_label: Coverage
-    logo: codecov
-    style: flat-square
-
-  - name: Language
-    format: shield
-    label: TypeScript/JS
-    message: 90% Typed
-    color: 3178c6
-    style: flat-square
-
-  - name: Linting
-    format: shield
-    label: Linting
-    message: Biome Pass
-    color: 008000
-    style: flat-square
-
+    img: https://codecov.io/github/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension/branch/main/graph/badge.svg?token=YOUR_CODECOV_TOKEN
+    link: https://codecov.io/github/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension
+  - name: Tech Stack
+    img: https://img.shields.io/badge/Tech%20Stack-TypeScript%2C%20Vite%2C%20Tauri%2C%20TailwindCSS-blue
+    link: https://vitejs.dev/ https://tauri.app/ https://tailwindcss.com/
+  - name: Lint & Format
+    img: https://img.shields.io/badge/Lint%20%2F%20Format-Biome-FF9900
+    link: https://biome.dev/
   - name: License
-    format: badge
-    license: cc-by-nc-4.0
-    badge_label: License
-    style: flat-square
-
+    img: https://img.shields.io/github/license/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension?color=CC0000&style=flat-square
+    link: https://github.com/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension/blob/main/LICENSE
   - name: GitHub Stars
-    format: github-stars
-    user: chirag127
-    repo: JSErrorFlow-Realtime-DOM-Error-Visualizer-Browser-Extension
-    style: flat-square
-
-  - name: Framework
-    format: shield
-    label: Framework
-    message: Vite/TS
-    color: 747bff
-    style: flat-square
+    img: https://img.shields.io/github/stars/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension?style=flat-square&logo=github
+    link: https://github.com/chirag127/JSErrorFlow-Real-Time-Visualizer-Browser-Extension/stargazers
